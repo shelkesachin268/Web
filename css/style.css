@@ -1,1 +1,121 @@
+/* Global Themes & Temple Vibe Background */
+body {
+    margin: 0;
+    font-family: 'Poppins', Georgia, serif;
+    background: linear-gradient(rgba(26, 12, 2, 0.9), rgba(51, 15, 2, 0.95)), 
+                url('https://images.unsplash.com/photo-1609137144813-7d7889e13df6') no-repeat center center fixed;
+    background-size: cover;
+    color: #f7e7c4;
+}
+
+h1, h2, h3 {
+    color: #ffd700;
+    text-align: center;
+}
+
+/* Horizontal Scroll Layout for Home Page */
+.horizontal-scroll-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    padding: 20px;
+    scroll-behavior: smooth;
+}
+
+.horizontal-scroll-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.horizontal-scroll-container::-webkit-scrollbar-thumb {
+    background: #ffd700;
+    border-radius: 4px;
+}
+
+/* Responsive Product Card Layout */
+.product-card {
+    min-width: 250px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid #ffd70033;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.3s;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.tag {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 5px 10px;
+    font-size: 12px;
+    border-radius: 3px;
+    font-weight: bold;
+}
+
+.best-seller {
+    background: #ff4500;
+    color: #fff;
+}
+
+/* --- LIVE ANIMATIONS: FLAME & SMOKE --- */
+
+/* Deepak Flame Animation */
+.flame {
+    width: 15px;
+    height: 25px;
+    background: linear-gradient(to bottom, #ff4500, #ffa500, #ffff00);
+    border-radius: 50% 50% 20% 20% / 60% 60% 40% 40%;
+    animation: flicker 0.15s infinite alternate;
+    margin: 0 auto;
+}
+
+@keyframes flicker {
+    0% { transform: scale(1) rotate(-1deg); opacity: 0.9; }
+    100% { transform: scale(1.05) rotate(1deg); opacity: 1; }
+}
+
+/* Agarbatti Smoke Animation */
+.smoke-container {
+    position: relative;
+    height: 100px;
+    width: 40px;
+    margin: 0 auto;
+}
+
+.smoke-line {
+    position: absolute;
+    bottom: 0;
+    width: 2px;
+    height: 40px;
+    background: rgba(220, 220, 220, 0.3);
+    filter: blur(2px);
+    border-radius: 50%;
+}
+
+.s-1 { left: 15px; animation: rise 2s infinite linear; }
+.s-2 { left: 20px; animation: rise 2.5s infinite linear 0.5s; }
+.s-3 { left: 25px; animation: rise 1.8s infinite linear 0.2s; }
+
+@keyframes rise {
+    0% { transform: translateY(0) scaleX(1); opacity: 0; }
+    50% { opacity: 0.5; transform: translateX(5px) scaleX(1.5); }
+    100% { transform: translateY(-80px) scaleX(2); opacity: 0; }
+}
+
+/* Utility Layout Buttons */
+.btn-primary {
+    display: inline-block;
+    background: #800000;
+    color: #fff;
+    border: 1px solid #ffd700;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+}
 
