@@ -1,1 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Account Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .account-box { max-width: 400px; margin: 50px auto; background: rgba(255,255,255,0.05); padding: 30px; border-radius: 8px; border:1px solid #ffd700; text-align: center; }
+        .account-box input { width: 90%; padding: 10px; margin: 10px 0; border-radius: 4px; border: none; }
+    </style>
+</head>
+<body>
+
+    <div class="account-box">
+        <h2>Customer Sign-In</h2>
+        <p>Access your billing details and track order delivery history.</p>
+        <form onsubmit="event.preventDefault(); alert('Logged in successfully!');">
+            <input type="email" placeholder="Enter your email address" required><br>
+            <input type="password" placeholder="Enter your password" required><br>
+            <button type="submit" class="btn-primary" style="width:100%; margin-top:10px;">Sign In</button>
+        </form>
+    </div>
+
+</body>
+</html>
 
