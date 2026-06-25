@@ -1,1 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details | Bhagwati Divine</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="detail-header">
+        <a href="products.html" class="back-link">◁ Back to All Products</a>
+    </header>
+
+    <main class="product-detail-layout">
+        <!-- 4 Images Gallery Section -->
+        <section class="image-gallery">
+            <div class="main-image-container">
+                <img id="main-product-img" src="https://via.placeholder.com/400" alt="Main Product Image">
+            </div>
+            <div class="thumbnail-row">
+                <img src="https://via.placeholder.com/100" onclick="changeImage(this.src)">
+                <img src="https://via.placeholder.com/100" onclick="changeImage(this.src)">
+                <img src="https://via.placeholder.com/100" onclick="changeImage(this.src)">
+                <img src="https://via.placeholder.com/100" onclick="changeImage(this.src)">
+            </div>
+        </section>
+
+        <!-- Technical Information Details -->
+        <section class="info-content">
+            <h1 id="det-title">Mantra Chanting Machine</h1>
+            <p class="pricing-tier">MRP: <span class="mrp" id="det-mrp">₹999</span> | Offer Price: <strong id="det-price">₹499</strong></p>
+            
+            <div class="stock-status-badge">
+                Available Stock: <span id="det-stock" style="color:#00ff00; font-weight:bold;">Loading...</span>
+            </div>
+
+            <h3>Key Points</h3>
+            <ul id="det-keys">
+                <li>High-fidelity, premium digital sound.</li>
+                <li>Easy single-touch toggle switch operation.</li>
+                <li>Compact design perfect for home mandirs and altars.</li>
+            </ul>
+
+            <h3>Description</h3>
+            <p id="det-desc">Immerse your space in peaceful energy. This device features loops of crisp audio tracks designed to lower anxiety and clear negative environments.</p>
+
+            <!-- Action Buttons Area -->
+            <div class="purchase-action-container">
+                <!-- Custom styling placeholder for upcoming Razorpay URL linking -->
+                <button class="btn-purchase razorpay-btn" id="rzp-pay-btn" onclick="processCheckout()">
+                    💳 Secure Checkout via Card/UPI (Razorpay)
+                </button>
+                
+                <button class="btn-purchase whatsapp-btn" onclick="triggerWhatsAppRedirect()">
+                    💬 Instant Order via WhatsApp
+                </button>
+
+                <a href="#" id="meesho-link" target="_blank" class="btn-meesho">
+                    🛍️ View This Catalog Item on Meesho
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Recommended Items Carousels -->
+    <section class="recommendations-container">
+        <h2>Recommended Spiritual Products</h2>
+        <div class="horizontal-scroll-container">
+            <div class="product-card" onclick="navigateToProduct(1)">
+                <img src="https://via.placeholder.com/150" alt="Rec 1">
+                <h4>Akhand Maha Mantra Machine</h4>
+            </div>
+            <div class="product-card" onclick="navigateToProduct(2)">
+                <img src="https://via.placeholder.com/150" alt="Rec 2">
+                <h4>Shree Ram Dhun Player</h4>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/app.js"></script>
+    <script>
+        // Simple page URL parser to match which item ID was selected
+        const params = new URLSearchParams(window.location.search);
+        const prodId = params.get('id') || 1;
+
+        // Populate details based on ID
+        document.getElementById('det-title').innerText = `Spiritual Mantra Player Box #${prodId}`;
+        document.getElementById('meesho-link').href = `https://www.meesho.com/search?q=mantra+chanting+machine+id=${prodId}`;
+        
+        // Fetch real-time available stock levels from tracking system
+        let stockCount = localStorage.getItem(`stock_prod_${prodId}`);
+        if(stockCount === null) {
+            stockCount = 25; // Default initial layout count
+            localStorage.setItem(`stock_prod_${prodId}`, 25);
+        }
+        document.getElementById('det-stock').innerText = stockCount > 0 ? `${stockCount} units remaining` : "Out of Stock";
+
+        function changeImage(src) {
+            document.getElementById('main-product-img').src = src;
+        }
+
+        function triggerWhatsAppRedirect() {
+            const title = document.getElementById('det-title').innerText;
+            const price = document.getElementById('det-price').innerText;
+            const msg = `Hello! I am interested in purchasing your *${title}* listed for ${price}. Please let me know how to proceed with shipping.`;
+            window.open(`https://wa.me/919876543210?text=${encodeURIComponent(msg)}`, '_blank');
+        }
+    </script>
+</body>
+</html>
 
