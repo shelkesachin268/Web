@@ -1,1 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Chanting Machines | Bhagwati Divine</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="page-header">
+        <a href="index.html" class="back-home">◁ Back to Home</a>
+        <h2>Our Divine Chanting Catalog</h2>
+        <p>Select a machine to view full divine specifications and audio details.</p>
+    </header>
+
+    <!-- Grid View of All 22 Products -->
+    <section class="products-grid-container" id="all-products-grid">
+        <!-- The remaining 21 products will generate dynamically via JS, 
+             but here is how the structure looks inside the grid: -->
+        
+        <!-- Product 1: Only one with the Best Seller Tag -->
+        <div class="product-card" onclick="navigateToProduct(1)">
+            <span class="tag best-seller">Best Seller</span>
+            <img src="https://via.placeholder.com/250" alt="Mantra Machine 1">
+            <h3>1. Akhand Maha Mantra Machine (22-in-1)</h3>
+            <p class="price"><span class="mrp">₹999</span> ₹499</p>
+        </div>
+    </section>
+
+    <script src="js/app.js"></script>
+    <script>
+        // Loop to easily simulate and render all 22 products dynamically without writing 22 separate HTML cards manually
+        const grid = document.getElementById('all-products-grid');
+        
+        // Names array for illustration
+        const machineNames = [
+            "Akhand Maha Mantra Machine", "Shree Ram Dhun Player", "Gayatri Mantra Meditation Device",
+            "Lord Shiva Chants Audio Box", "Hanuman Chalisa Audio Player", "Ganesh Mantra Spiritual Machine",
+            "Mahamrityunjaya Healing Device", "Sai Baba Bhakti Player", "Krishna Dhun Ambient Box",
+            "Laxmi Mantra Wealth Player", "Saraswati Chants Education Player", "Navkar Mantra Jain Player",
+            "Gurbani Path Devotional Machine", "Buddha Meditation Chants Box", "Om Chanting Vibration Box",
+            "Balaji Venkateshwara Audio Player", "Shani Dev Peeth Machine", "Durga Maa Sloka Player",
+            "Khatu Shyam Ji Bhakti Player", "Radhe Radhe Chanting Device", "Sankat Mochan Audio Box",
+            "Vedic Mantras Premium Player"
+        ];
+
+        for (let i = 2; i <= 22; i++) {
+            const productName = machineNames[i-1] || `Divine Mantra Player Vol ${i}`;
+            const cardHTML = `
+                <div class="product-card" onclick="navigateToProduct(${i})">
+                    <!-- No tags here as requested -->
+                    <img src="https://via.placeholder.com/250" alt="${productName}">
+                    <h3>${i}. ${productName}</h3>
+                    <p class="price"><span class="mrp">₹1199</span> ₹599</p>
+                </div>
+            `;
+            grid.innerHTML += cardHTML;
+        }
+    </script>
+</body>
+</html>
 
